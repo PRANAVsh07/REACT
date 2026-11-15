@@ -7,20 +7,20 @@ function App(){
   const [user, setUser] = useState([]);
   const [count, setCount] = useState(10);
    
-  useEffect(()=>{
+  useEffect(()=>{// ye hook sirf ek he baar chlega
      
     async function github(){
      
     const response = await fetch(`https://api.github.com/users?per_page=${count}`);
     const data = await response.json();
-    setUser(data);
+    setUser(data);//reremder spp function
     console.log(data);
     }
   
   github();
 
 
-  },[count]);
+  },[count]);//Empty array  is impoprtant,with condition to say if count change useEffect hook schould start again
 
  
 
