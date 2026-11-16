@@ -18,6 +18,7 @@ function App(){
     }
   
   github();
+  
 
 
   },[count]);//Empty array  is impoprtant,with condition to say if count change useEffect hook schould start again
