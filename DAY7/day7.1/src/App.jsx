@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { useRef } from "react";
 
 function App(){
 
@@ -7,7 +8,7 @@ function App(){
 //  const [intervalid  ,Setintervalid] = useState(null);
 const intervalidRef=useRef(null);
   function handelStart(){
-    if(intervalid!=null)
+    if(intervalidRef.current!=null)
       return;
 
     const intId=setInterval(()=>{
@@ -15,19 +16,19 @@ const intervalidRef=useRef(null);
     },1000)
   
   
-  
+  intervalidRef.current = intId;
 
   }
   
   function handelStop(){
-    clearInterval(intervalid)
-    Setintervalid(null);
+    clearInterval(intervalidRef.current )
+  intervalidRef.current = null;
     
   }
 
  function handelReset(){
-    clearInterval(intervalid)
-    Setintervalid(null);
+    clearInterval(intervalidRef.current)
+  intervalidRef.current = null;
     setTime(0);
     
   }
