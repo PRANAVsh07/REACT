@@ -1,20 +1,18 @@
-import { useState } from "react"
+import { useState, useContext } from "react";
+import { CountContext } from "../App";
 
 
-
-
-function Counter({count ,setCount}){
-//    const [count , setCount] = useState(0);
-
-
-return(
-    <>
-    <h1>Counter is: {count}</h1>
-    <button onClick ={()=>setCount(count=>count+1)}>Increment</button>
-     <button onClick ={()=>setCount(count=>count-1)}>Decrement</button>
-
-    </>
-)
+function Counter(){
+     
+    const {count,setCount} = useContext(CountContext);
+  
+    return(
+        <>
+        <h1>Counter is: {count}</h1>
+        <button onClick={()=>setCount(count=>count+1)}>Increment</button>
+        <button onClick={()=>setCount(count=>count-1)}>Decrement</button>
+        </>
+    )
 }
 
-export default Counter
+export default Counter;

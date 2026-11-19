@@ -1,18 +1,24 @@
-
-import Counter from "./components/Counter"
 import Header from "./components/Header"
-import { useState } from "react"
+import Counter from "./components/Counter"
+import { useState, createContext } from "react";
+
+export const CountContext = createContext();
+
 function App(){
+  
+  const [count, setCount] = useState(0);
 
-
-    const [count ,setCount ]=useState(0)
   return(
     <>
-    <h1>I am the app</h1>
-    <Header count ={count}></Header>
-    <Counter count={count} setCount={setCount}></Counter>
+      <CountContext value={{count,setCount}}>
+        <h1>I am the app</h1>
+        <Header></Header>
+        <Counter></Counter>
+      </CountContext>
     </>
   )
+
+
 }
 
 export default App;
